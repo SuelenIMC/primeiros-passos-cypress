@@ -15,7 +15,10 @@ describe('Orang HMR tests', () => {
     genericField: ".oxd-input--active",
     dateField: "[placeholder='yyyy-dd-mm']",
     dateCloseButton: ".--close",
-    submitButton: "[type='submit']"
+    submitButton: "[type='submit']",
+    genericTwoField: "[clear='false']",
+    nationaltyField: ".oxd-select-dropdown > :nth-child(27)",
+    maritalField: ".oxd-select-dropdown > :nth-child(3)"
   }
 
   it.only('User Info Update - Success', () => {
@@ -33,10 +36,14 @@ describe('Orang HMR tests', () => {
     cy.get(selectorList.genericField).eq(5).clear().type('123456')
     cy.get(selectorList.dateField).eq(0).clear().type('2025-03-10')
     cy.get(selectorList.dateCloseButton).click()
+    cy.get(selectorList.genericTwoField).eq(0).click()
+    cy.get(selectorList.nationaltyField).click()
+    cy.get(selectorList.genericTwoField).eq(1).click()
+    cy.get(selectorList.maritalField).click()
     cy.get(selectorList.submitButton).eq(0).click()
     cy.get('body').should('contain', 'Successfully Updated')
     cy.get('.oxd-toast-close')
-    
+
     //cy.get(selectorList.genericField).eq(6).clear().type('DriversTest')
   })
   it('Login - Fail', () => {
