@@ -15,7 +15,6 @@ class MenuPage{
             buzzButton: '[href="/web/index.php/buzz/viewBuzz"]',
         }
 
-
         return selectors
     }
 
